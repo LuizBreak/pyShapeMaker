@@ -34,5 +34,5 @@ def Centro(Tamano, CaracterDeseado, flash):
 def Derecha(Tamano, CaracterDeseado, flash):
     return ""
 
-def PonerLetras(Tamano, LetraDeseada, flash=false):
+def PonerLetras(Tamano, LetraDeseada, flash):
     return ""
