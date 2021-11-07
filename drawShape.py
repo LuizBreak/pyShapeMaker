@@ -25,14 +25,14 @@ def MakeEnvelope(c1, c2, outputType, flash, ratio):
 def GetLineFeed (outputType, flash):
     return ""
 
-def Izquierda(Tamano, CaracterDeseado, flash):
-    return ""
+def Izquierda(Tamano, CaracterDeseado):
+    return CaracterDeseado * Tamano
 
-def Centro(Tamano, CaracterDeseado, flash):
-    return ""
+def Centro(Tamano, CaracterDeseado):
+    return CaracterDeseado * Tamano
 
-def Derecha(Tamano, CaracterDeseado, flash):
-    return ""
+def Derecha(Tamano, CaracterDeseado):
+    return CaracterDeseado * Tamano
 
-def PonerLetras(Tamano, LetraDeseada, flash):
-    return ""
+def PonerLetras(Tamano, LetraDeseada):
+    return LetraDeseada * Tamano
