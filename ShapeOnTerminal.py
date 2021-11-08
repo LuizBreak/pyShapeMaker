@@ -1,5 +1,7 @@
 import sys
 import time
+import drawShape
+
 
 # Run application: python ShapeOnTerminal.py terminal "./Data/json/shapesRequest.v4.json"
 # Aritcle Reference: Great python snippets for day to day stuff: https://therenegadecoder.com/code/python-code-snippets-for-everyday-problems/
@@ -14,7 +16,7 @@ def main():
 
     for idx, arg in enumerate(sys.argv):
         if idx == 1:
-            outpuType = arg
+            outputType = arg
             print("Argument #{} outpuType -> {}".format(idx, arg))
         elif idx == 2:
             filePath = arg
@@ -33,6 +35,7 @@ def main():
     sys.exit(0)
 
 def processJsonRequests(filePath, outputType):
+    print(drawShape.MakeSquare("*", "+", "terminal", 3))
     return ""
 
 lado = ""
