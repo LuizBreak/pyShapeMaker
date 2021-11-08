@@ -3,6 +3,7 @@ import time
 
 # Run application: python ShapeOnTerminal.py terminal "./Data/json/shapesRequest.v4.json"
 # Aritcle Reference: Great python snippets for day to day stuff: https://therenegadecoder.com/code/python-code-snippets-for-everyday-problems/
+# Arielle 
 
 def main():
 
