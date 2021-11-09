@@ -22,6 +22,11 @@ def MakeSquare(c1, c2, outputType, ratio):
 
     Shape = ""
     lineFeed = "\n"
+    
+    if outputType == "web":
+        lineFeed = "<br>"
+    else: 
+        lineFeed = "\n"   
 
     CUERPOFINAL = (lateral * 2 + tamanoDelCentro)   
 
@@ -32,21 +37,16 @@ def MakeSquare(c1, c2, outputType, ratio):
 
     
     headerFooter = Centro(columnas + 2, c1 ) +  lineFeed
-    aperturaCierre = Izquierda(lateral, c1)  + Centro(tamanoDelCentro +2, "-") +  Derecha(lateral, c1) + lineFeed
+    aperturaCierre = Izquierda(lateral, c1)  + Centro(tamanoDelCentro + 2, "-") +  Derecha(lateral, c1) + lineFeed
     cuerpo = Izquierda(lateral, c1) + "|" + Centro(tamanoDelCentro, c2) + "|" + Derecha(lateral, c1) + lineFeed
-  
-    
-    if outputType == "web":
-        lineFeed = "<br>"
-    else: 
-        lineFeed = "\n"   
+
       
     limite = round((rows*2) * 0.3)
     limiteDeAbajo = rows*2 - limite
 
     Shape = "ratio: " + str(ratio)  +  ", columnas: " + str(columnas)  + ", rows: " +  str(rows * 2)  + ", lateral: " +  str(lateral)  + ", tamanoDelCentro: "  + str(tamanoDelCentro) +  ", limite: " + str(limite)  + lineFeed
 
-    for i in range(0, rows*2):
+    for i in range(0, int(rows*2)):
      
         # Header de arriba
         if  i < limite - 1:
@@ -83,13 +83,13 @@ def GetLineFeed (outputType):
     return ""
 
 def Izquierda(Tamano, CaracterDeseado):
-    return CaracterDeseado * Tamano
+    return CaracterDeseado * int(Tamano)
 
 def Centro(Tamano, CaracterDeseado):
-    return CaracterDeseado * Tamano
+    return CaracterDeseado * int(Tamano)
 
 def Derecha(Tamano, CaracterDeseado):
-    return CaracterDeseado * Tamano
+    return CaracterDeseado * int(Tamano)
 
 def PonerLetras(Tamano, LetraDeseada):
-    return LetraDeseada * Tamano
+    return LetraDeseada * int(Tamano)
