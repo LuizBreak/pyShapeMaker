@@ -1,6 +1,7 @@
 import sys
 import time
 import drawShape
+import fileOperations as fOps
 
 
 # Run application: python ShapeOnTerminal.py terminal "./Data/json/shapesRequest.v4.json"
@@ -35,7 +36,9 @@ def main():
     sys.exit(0)
 
 def processJsonRequests(filePath, outputType):
-    print(drawShape.MakeSquare("*", "+", "terminal", 3))
+    finalShape = drawShape.MakeSquare("*", "+", "terminal", 3)
+    print(finalShape)
+    fOps.writeToFile("./data/finalShape.txt", finalShape)
     return ""
 
 lado = ""

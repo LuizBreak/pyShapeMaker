@@ -4,7 +4,19 @@ import os
 
 
 def ShapeController(c1, c2, c3, outputType, shapeType, Ratio):
-    return ""
+
+    if  shapeType == "Diamond":
+      return MakeDiamond(c1, c2, outputType,  Ratio)
+    elif  shapeType == "Square":
+      return MakeSquare(c1, c2, outputType, Ratio)
+    elif  shapeType ==  "Rhombus":
+      return Makerhombus(c1, c2, outputType, Ratio)
+    elif  shapeType ==  "Cross":
+      return MakeCross(c1, c2, outputType, Ratio)
+    elif  shapeType ==  "Envelope":
+      return MakeEnvelope(c1, c2, c3, outputType, Ratio)
+    else:
+      return "Shape #{shapeType}not implemented!"
 
 def MakeCross(c1, c2, outputType, ratio):
     return ""
