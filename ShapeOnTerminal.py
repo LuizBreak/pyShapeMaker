@@ -36,9 +36,10 @@ def main():
     sys.exit(0)
 
 def processJsonRequests(filePath, outputType):
-    finalShape = drawShape.MakeSquare("*", "+", "terminal", 3)
+    fOps.jsonReader(filePath)
+    finalShape = drawShape.ShapeController("*", "+", "", outputType, "Square", 1)
     print(finalShape)
-    fOps.writeToFile("./data/finalShape.txt", finalShape)
+    fOps.writeToFile("./data/orders/finalShape.txt", finalShape)
     return ""
 
 lado = ""
