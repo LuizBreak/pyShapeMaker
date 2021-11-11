@@ -37,6 +37,8 @@ def main():
 
 def processJsonRequests(filePath, outputType):
 
+    numOfShapes = 0 
+
     data = fOps.jsonReader(filePath)
 
     print('P1:')
@@ -51,33 +53,45 @@ def processJsonRequests(filePath, outputType):
         multipleFiles = solicitude['multipleFiles'] 
         allOrders = solicitude['orders']
 
+        fileContent = ""
+
         j = 0
         for order in allOrders:
 
             print(order['shape'])
 
             j += 1
-            # cantidad = order['cantidad']
-            # lado = order['lado']
-            # centro = order['centro'] 
-            # ratio = order['ratio'] 
-            # shape = order['shape']
-            # fill = order['fill']  
+            cantidad = order['cantidad']
+            lado = order['lado']
+            centro = order['centro'] 
+            ratio = order['ratio'] 
+            shape = order['shape']
+            # columnas = order['columnas']  
 
             if (multipleFiles == True):
                 fileContent = ""
-                fileName = "./Data/orders/" + nombre + "." + shape + ".order[" +  j + "].txt"            
+                fileName = "./Data/orders/" + nombre + "." + order['shape'] + ".order[" +  str(j) + "].txt"            
             else:
                 fileName = "./Data/orders/" + nombre + ".txt"
 
             #producir e imprimir solo un shape en la pantalla
             #tempFileContent = Shaper.ShapeController(lado , centro, fill, outpuType, shape, flashOnScreen, ratio);
 
-            tempFileContent = drawShape.ShapeController("*", "+", "", outputType, "Square", 1)
+            tempFileContent = ""
+            tempFileContent = drawShape.ShapeController(lado, centro, "", outputType, shape, ratio)
             print(tempFileContent)
-            # fOps.writeToFile("./data/orders/finalShape.txt", tempFileContent)
-            fOps.writeToFile(fileName, tempFileContent)
-    
+            # fOps.writeToFile("./data/orders/finalShape.txt", tempFileContent)    
+      
+            for j in range(0, cantidad):
+
+                #  acumular shapes
+                fileContent += tempFileContent
+                numOfShapes += 1
+
+            fOps.writeToFile(fileName, fileContent)
+
+
+                
     return ""
 
 lado = ""
