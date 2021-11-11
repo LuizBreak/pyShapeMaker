@@ -36,10 +36,48 @@ def main():
     sys.exit(0)
 
 def processJsonRequests(filePath, outputType):
-    fOps.jsonReader(filePath)
-    finalShape = drawShape.ShapeController("*", "+", "", outputType, "Square", 1)
-    print(finalShape)
-    fOps.writeToFile("./data/orders/finalShape.txt", finalShape)
+
+    data = fOps.jsonReader(filePath)
+
+    print('P1:')
+    print(data)
+    
+    # Iterating through the json list
+    for solicitude in data['Solicitudes']:
+        
+        nombre = solicitude['nombre'] 
+        tipoDeEntrega = solicitude['tipoDeEntrega']
+        correo = solicitude['correo'] 
+        multipleFiles = solicitude['multipleFiles'] 
+        allOrders = solicitude['orders']
+
+        j = 0
+        for order in allOrders:
+
+            print(order['shape'])
+
+            j += 1
+            # cantidad = order['cantidad']
+            # lado = order['lado']
+            # centro = order['centro'] 
+            # ratio = order['ratio'] 
+            # shape = order['shape']
+            # fill = order['fill']  
+
+            if (multipleFiles == True):
+                fileContent = ""
+                fileName = "./Data/orders/" + nombre + "." + shape + ".order[" +  j + "].txt"            
+            else:
+                fileName = "./Data/orders/" + nombre + ".txt"
+
+            #producir e imprimir solo un shape en la pantalla
+            #tempFileContent = Shaper.ShapeController(lado , centro, fill, outpuType, shape, flashOnScreen, ratio);
+
+            tempFileContent = drawShape.ShapeController("*", "+", "", outputType, "Square", 1)
+            print(tempFileContent)
+            # fOps.writeToFile("./data/orders/finalShape.txt", tempFileContent)
+            fOps.writeToFile(fileName, tempFileContent)
+    
     return ""
 
 lado = ""
